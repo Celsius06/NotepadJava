@@ -1,21 +1,26 @@
+/* Name: Nguyen Minh Thuan – ITCSIU22269
+Purpose: This class implements the keyboard shortcut combination for the convenient user experience of the application
+*/
+
 // Libraries
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
 // Class declaration
 public class KeyHandler implements KeyListener {
-	// Variables declaration
-	GUI gui;
-	
-	// Constructor
-	public KeyHandler (GUI gui) {
-		this.gui = gui;
-	}
-	
-	// Methods
-	@Override
-	public void keyTyped(KeyEvent e) {}
-	
+    // Variables declaration
+    GUI gui;
+
+    // Constructor
+    public KeyHandler(GUI gui) {
+        this.gui = gui;
+    }
+
+    // Methods
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         // Combination with Ctrl
@@ -65,7 +70,8 @@ public class KeyHandler implements KeyListener {
             }
         }
     }
-	
-	@Override
-	public void keyReleased(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

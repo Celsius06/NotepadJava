@@ -1,3 +1,7 @@
+/* Name: Nguyen Minh Thuan – ITCSIU22269
+Purpose: This class implements the view features (zoom in/out and search)
+*/
+
 // Libraries
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -27,13 +31,13 @@ public class Function_View {
     // Methods
     public void zoomIn() {
         float currentSize = gui.textArea.getFont().getSize();
-        float newSize = currentSize * 1.2f;		// Increase font size by a factor (1.2)
+        float newSize = currentSize * 1.2f; // Increase font size by a factor (1.2)
         gui.textArea.setFont(gui.textArea.getFont().deriveFont(newSize));
     }
 
     public void zoomOut() {
         float currentSize = gui.textArea.getFont().getSize();
-        float newSize = currentSize * 0.8f;		// Increase font size by a factor (0.8)
+        float newSize = currentSize * 0.8f; // Increase font size by a factor (0.8)
         gui.textArea.setFont(gui.textArea.getFont().deriveFont(newSize));
     }
 
@@ -62,12 +66,14 @@ public class Function_View {
             }
         }
         if (count > 0) {
-            JOptionPane.showMessageDialog(null, "Total occurrences of '" + word + "': " + count, "Word Search Result", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Total occurrences of '" + word + "': " + count, "Word Search Result",
+                    JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Word not found.", "Word Search Result", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Word not found.", "Word Search Result",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    
+
     public void openFindDialog() {
         String word = JOptionPane.showInputDialog(gui.window, "Enter word to search:");
         if (word != null && !word.isEmpty()) {
@@ -93,7 +99,8 @@ public class Function_View {
             String replaceWord = replaceField.getText();
             if (!findWord.isEmpty() && !replaceWord.isEmpty()) {
                 int changes = replaceWord(findWord, replaceWord);
-                JOptionPane.showMessageDialog(gui.window, "Total changes made: " + changes, "Replace Result", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(gui.window, "Total changes made: " + changes, "Replace Result",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }

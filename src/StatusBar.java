@@ -1,10 +1,14 @@
+/* Name: Nguyen Minh Thuan – ITCSIU22269
+Purpose: This class implements the status bar containing some information of that document 
+*/
+
 // Libraries
 import javax.swing.*;
 import java.awt.*;
 
 // Class declaration
 public class StatusBar {
-	// Variables declaration
+    // Variables declaration
     private JPanel statusBar;
     private JLabel positionLabel;
     private JLabel totalCharactersLabel;
@@ -16,8 +20,8 @@ public class StatusBar {
         totalCharactersLabel = new JLabel("0 characters"); // Default value
 
         statusBar.add(positionLabel);
-        statusBar.add(Box.createHorizontalGlue()); 
-        statusBar.add(Box.createHorizontalStrut(50)); 
+        statusBar.add(Box.createHorizontalGlue());
+        statusBar.add(Box.createHorizontalStrut(50));
         statusBar.add(totalCharactersLabel);
     }
 
@@ -30,16 +34,16 @@ public class StatusBar {
     public void updateCursorPosition(int line, int column) {
         positionLabel.setText(String.format("Line: %d | Column: %d", line, column));
     }
-    
+
     public void updateTotalCharacters(int total) {
         totalCharactersLabel.setText(String.format("%d characters", total));
     }
-    
+
     public void setFont(Font statusBarFont) {
         positionLabel.setFont(statusBarFont);
         totalCharactersLabel.setFont(statusBarFont);
     }
-    
+
     public void setForeground(Color color) {
         positionLabel.setForeground(color);
         totalCharactersLabel.setForeground(color);
