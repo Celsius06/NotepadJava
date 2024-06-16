@@ -1,0 +1,73 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Function_Color {
+  + changeColor(String): void
+}
+class Function_Edit {
+  + undo(): void
+  + redo(): void
+}
+class Function_File {
+  + open(): void
+  + saveAs(): void
+  + newFile(): void
+  + exit(): void
+  + isTextModified(): boolean
+  + save(): void
+  + isModified(): boolean
+}
+class Function_Format {
+  + createFont(int): void
+  + wordWrap(): void
+  + setFont(String): void
+}
+class Function_View {
+  + zoomOut(): void
+  + zoomIn(): void
+  + searchAndHighlight(String): void
+  + openFindDialog(): void
+  + openReplaceDialog(): void
+  - replaceWord(String, String): int
+}
+class GUI {
+  + actionPerformed(ActionEvent): void
+  + createEditMenu(): void
+  - setMenuForeground(Component, Color): void
+  + createTextArea(): void
+  + createFileMenu(): void
+  + createWindow(): void
+  + setFontsAndColors(): void
+  + createColorMenu(): void
+  + createFormatMenu(): void
+  - setComponentFontAndColor(Component, Font, Color): void
+  - setMenuItemFontAndColor(JMenu, Font, Color): void
+  + createViewMenu(): void
+  - setMenuBarFont(JMenuBar, Font): void
+  + setComponentFont(Component, Font): void
+  - updateStatusBar(): void
+  + createMenuBar(): void
+  + setZoomLevel(int): void
+  - setMenuItemForeground(JMenu, Color): void
+  + setComponentForeground(JMenuBar, Color): void
+}
+class KeyHandler {
+  + keyTyped(KeyEvent): void
+  + keyReleased(KeyEvent): void
+  + keyPressed(KeyEvent): void
+}
+class Main {
+  + main(String[]): void
+}
+class StatusBar {
+  + updateCursorPosition(int, int): void
+  + updateTotalCharacters(int): void
+  + setFont(Font): void
+  + getStatusBar(): JPanel
+  + setForeground(Color): void
+}
+
+@enduml
