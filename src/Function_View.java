@@ -88,9 +88,9 @@ public class Function_View {
         JTextField findField = new JTextField(10);
         JTextField replaceField = new JTextField(10);
 
-        panel.add(new JLabel("Find:"));
+        panel.add(new JLabel("Find: "));
         panel.add(findField);
-        panel.add(new JLabel("Replace with:"));
+        panel.add(new JLabel("Replace with: "));
         panel.add(replaceField);
 
         int result = JOptionPane.showConfirmDialog(gui.window, panel, "Find and Replace", JOptionPane.OK_CANCEL_OPTION);
