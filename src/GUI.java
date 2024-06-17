@@ -83,11 +83,11 @@ public class GUI implements ActionListener {
 		createColorMenu();
 		createViewMenu();
 
-		// Set the font for the text editor
-		format.selectedFont = "Arial"; // Set default font
-		format.createFont(16); // Set default font size
-		format.wordWrap();
-		color.changeColor("White"); // Set default color
+		// Default settings
+		format.selectedFont = "Inter"; 	// Set default font
+		format.createFont(16); 			// Set default font size
+		format.wordWrap();				// Set word wrap to on initially
+		color.changeColor("White"); 	// Set default color
 
 		// Set the font of the menu bar
 		Font menuFont = new Font("Segoe UI", Font.PLAIN, 12);

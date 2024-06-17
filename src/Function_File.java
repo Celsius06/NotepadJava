@@ -102,9 +102,11 @@ public class Function_File {
 				fw.write(gui.textArea.getText());
 				fw.close();
 			} catch (Exception e) {
+				// Check for potential errors
 				System.out.println("Something went wrong with the file.");
 			}
 		} else {
+			// Check for potential errors
 			System.out.println("Save dialog canceled. No file saved.");
 			isFileSaved = false;
 		}
