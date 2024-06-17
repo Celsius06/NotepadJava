@@ -1,5 +1,5 @@
 /* Name: Nguyen Minh Thuan – ITCSIU22269
-Purpose: This class implements the view features (zoom in/out and search)
+Purpose: This class implements the view features (zoom in/out, search and replace)
 */
 
 // Libraries
@@ -11,7 +11,7 @@ import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
+// import java.util.Stack;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -43,13 +43,13 @@ public class Function_View {
 
     public void searchAndHighlight(String word) {
         Queue<Integer> positions = new LinkedList<>();
-        Stack<Integer> positionsStack = new Stack<>();
+        // Stack<Integer> positionsStack = new Stack<>();
         String content = gui.textArea.getText();
         int index = content.indexOf(word);
         int count = 0; // Counter for occurrences
         while (index >= 0) {
             positions.add(index);
-            positionsStack.push(index);
+            // positionsStack.push(index);
             index = content.indexOf(word, index + 1);
             count++;
         }
