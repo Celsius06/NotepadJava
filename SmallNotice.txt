@@ -1,2 +1,3 @@
 The application can only be closed if:
 - The text space is blank
+- User open an existing document and want to exit
