@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
+import javax.swing.JOptionPane;
+
 //Class declaration
 public class Function_File {
 	// Variables declaration
@@ -42,17 +44,8 @@ public class Function_File {
 			fileAddress = fd.getDirectory();
 			gui.window.setTitle(fileName);
 		}
-		System.out.println("Opened chosen file with file address and file name: " + fileAddress + fileName); // Print
-																												// out
-																												// the
-																												// file
-																												// directory
-																												// and
-																												// file
-																												// name
-																												// in
-																												// the
-																												// terminal
+		System.out.println("Opened chosen file with file address and file name: " + fileAddress + fileName); // Print out the file directory 
+																											 // and file name in the terminal
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(fileAddress + fileName)); // Link directory and file
 																							// name to open the text
@@ -71,11 +64,11 @@ public class Function_File {
 	}
 
 	public void save() {
-		// Check if the text area is empty initially
-		if (gui.textArea.getText().isEmpty()) {
-			System.out.println("Cannot save an empty file.");
-			return;
-		}
+	    // Check if the text area is empty initially
+	    if (gui.textArea.getText().isEmpty() && fileName == null) {
+	        JOptionPane.showMessageDialog(gui.window, "Cannot save an empty file.", "Warning", JOptionPane.WARNING_MESSAGE);
+	        return;
+	    }
 		if (fileName == null) {
 			saveAs();
 		} else {
@@ -89,10 +82,14 @@ public class Function_File {
 				System.out.println("Something went wrong with the file.");
 			}
 		}
-
 	}
 
 	public void saveAs() {
+	    // Check if the text area is empty initially
+	    if (gui.textArea.getText().isEmpty() && fileName == null) {
+	        JOptionPane.showMessageDialog(gui.window, "Cannot save an empty file.", "Warning", JOptionPane.WARNING_MESSAGE);
+	        return;
+	    }
 		FileDialog fd = new FileDialog(gui.window, "Save As", FileDialog.SAVE);
 		fd.setVisible(true);
 		if (fd.getFile() != null) {
@@ -109,6 +106,7 @@ public class Function_File {
 			}
 		} else {
 			System.out.println("Save dialog canceled. No file saved.");
+			isFileSaved = false;
 		}
 	}
 

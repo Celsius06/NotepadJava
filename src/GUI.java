@@ -50,7 +50,7 @@ public class GUI implements ActionListener {
 	// Function: Edit menu
 	JMenuItem iUndo, iRedo;
 	// Function: Format menu
-	JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR;
+	JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontInter, iFontBarlow;
 	JMenuItem iFontSize8, iFontSize12, iFontSize16, iFontSize20, iFontSize24, iFontSize28;
 	JMenu menuFont, menuFontSize;
 	// Function: Color menu
@@ -106,51 +106,88 @@ public class GUI implements ActionListener {
 	// Methods
 	public void createWindow() {
 		window = new JFrame("Notepad - New Text File 1");
-		window.setSize(800, 600); // 800 * 600 pixels
+		window.setSize(800, 600); // Dimensions of the application window: 800 * 600 pixels
 		window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		window.setLocationRelativeTo(null);	// Center the application window on the screen
 		window.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				// Check if the Find dialog is open and the text area is empty
-				if (isFindDialogOpen && textArea.getText().isEmpty()) {
-					window.dispose();
-					return;
-				} else {
-					// Check if the file is saved and not modified
-					if (file.isFileSaved && !file.isModified()) {
-						window.dispose();
-					} else {
-						// Check if the text is modified and the file is not saved
-						if (file.isFileJustOpened && !textArea.getText().isEmpty() && file.isModified()
-								&& !file.isFileSaved) {
-							int choice = JOptionPane.showConfirmDialog(window,
-									"Do you want to save changes before exiting?", "Save Changes",
-									JOptionPane.YES_NO_CANCEL_OPTION);
-							if (choice == JOptionPane.YES_OPTION) {
-								file.save();
-								JOptionPane.showMessageDialog(window, "File has been saved.", "File Saved",
-										JOptionPane.INFORMATION_MESSAGE);
-								window.dispose();
-							} else if (choice == JOptionPane.NO_OPTION) {
-								window.dispose();
-								return;
-							}
-						} else if (file.isFileJustOpened && !file.isTextModified()) {
-							int choice = JOptionPane.showConfirmDialog(window,
-									"Do you want to exit without modifying the text file?", "Exit Without",
-									JOptionPane.YES_NO_CANCEL_OPTION);
-							if (choice == JOptionPane.YES_OPTION) {
-								window.dispose();
-							} else if (choice == JOptionPane.NO_OPTION || choice == JOptionPane.CANCEL_OPTION) {
-								window.dispose();
-								return;
-							}
-							window.dispose();
-						}
-					}
-				}
+			    // Check if the Find dialog is open and the text area is empty
+			    if (isFindDialogOpen && textArea.getText().isEmpty()) {
+			        window.dispose();
+			        return;
+			    } else {
+			        // Check if the file is saved and not modified
+			        if (file.isFileSaved && !file.isModified()) {
+			            window.dispose();
+			        } else {
+			            // Check if the text is modified and the file is not saved
+			            if (file.isFileJustOpened && !textArea.getText().isEmpty() && file.isModified() && !file.isFileSaved) {
+			                int choice = JOptionPane.showConfirmDialog(window,
+			                        "Do you want to save changes before exiting/exit without modifying the text?", "Save Changes",
+			                        JOptionPane.YES_NO_CANCEL_OPTION);
+			                if (choice == JOptionPane.YES_OPTION) {
+			                    file.save();
+			                    JOptionPane.showMessageDialog(window, "File has been saved.", "File Saved",
+			                            JOptionPane.INFORMATION_MESSAGE);
+			                    window.dispose();
+			                } else if (choice == JOptionPane.NO_OPTION) {
+			                    window.dispose();
+			                    return;
+			                }			               
+			            } 
+			         // Check if user opens an existing text file and exit without modifying anything
+//			            else if (file.isFileJustOpened && !file.isTextModified()) {
+//			                int choice = JOptionPane.showConfirmDialog(window,
+//			                        "Do you want to exit without modifying the text file?", "Exit Without",
+//			                        JOptionPane.YES_NO_CANCEL_OPTION);
+//			                if (choice == JOptionPane.YES_OPTION) {
+//			                    window.dispose();
+//			                } else if (choice == JOptionPane.NO_OPTION || choice == JOptionPane.CANCEL_OPTION) {
+//			                    return;
+//			                }
+//			            } 
+		                // Check if the app is launched, something is typed, and the user wants to exit directly
+			            else if (!file.isFileJustOpened && !file.isFileSaved) {
+			                int choice = JOptionPane.showConfirmDialog(window,
+			                        "Do you want to save the new text before exiting?", "Save Changes",
+			                        JOptionPane.YES_NO_CANCEL_OPTION);
+			                if (choice == JOptionPane.YES_OPTION) {
+			                    file.saveAs();
+			                    if (!file.isFileSaved) {
+			                        JOptionPane.showMessageDialog(window, "File has not been saved. The application will be closed.", "File Not Saved", JOptionPane.WARNING_MESSAGE);
+			                    } else {
+			                        JOptionPane.showMessageDialog(window, "File has been saved.", "File Saved", JOptionPane.INFORMATION_MESSAGE);
+			                    }
+			                    window.dispose();
+			                } else if (choice == JOptionPane.NO_OPTION) {
+			                    window.dispose();
+			                } else {
+			                    // If Cancel option is chosen, do nothing and return
+			                    return;
+			                }
+			            } else {
+			                // Default case to handle unsaved changes for other scenarios
+			                int choice = JOptionPane.showConfirmDialog(window,
+			                        "Do you want to save changes before exiting?", "Save Changes",
+			                        JOptionPane.YES_NO_CANCEL_OPTION);
+			                if (choice == JOptionPane.YES_OPTION) {
+			                    file.save();
+			                    JOptionPane.showMessageDialog(window, "File has been saved.", "File Saved",
+			                            JOptionPane.INFORMATION_MESSAGE);
+			                    window.dispose();
+			                } else if (choice == JOptionPane.NO_OPTION) {
+			                    window.dispose();
+			                } else {
+			                    // If Cancel option is chosen, do nothing and return
+			                    return;
+			                }
+			            }
+			        }
+			    }
 			}
 		});
+		
 		try {
 			File imgFile = new File("img\\notepad.png");
 			Image img = ImageIO.read(imgFile);
@@ -277,6 +314,16 @@ public class GUI implements ActionListener {
 		iFontTNR.addActionListener(this);
 		iFontTNR.setActionCommand("Times New Roman");
 		menuFont.add(iFontTNR);
+		
+		iFontInter = new JMenuItem("Inter");
+		iFontInter.addActionListener(this);
+		iFontInter.setActionCommand("Inter");
+		menuFont.add(iFontInter);
+		
+		iFontBarlow = new JMenuItem("Barlow");
+		iFontBarlow.addActionListener(this);
+		iFontBarlow.setActionCommand("Barlow");
+		menuFont.add(iFontBarlow);
 
 		menuFontSize = new JMenu("Font Size ");
 		menuFormat.add(menuFontSize);
@@ -370,6 +417,12 @@ public class GUI implements ActionListener {
 				format.setFont(command);
 				break;
 			case "Times New Roman":
+				format.setFont(command);
+				break;
+			case "Inter":
+				format.setFont(command);
+				break;
+			case "Barlow":
 				format.setFont(command);
 				break;
 

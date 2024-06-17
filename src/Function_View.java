@@ -72,6 +72,7 @@ public class Function_View {
             JOptionPane.showMessageDialog(null, "Word not found.", "Word Search Result",
                     JOptionPane.INFORMATION_MESSAGE);
         }
+        highlighter.removeAllHighlights();
     }
 
     public void openFindDialog() {

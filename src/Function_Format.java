@@ -9,7 +9,7 @@ import java.awt.Font;
 public class Function_Format {
 	// Variables declaration
 	GUI gui;
-	Font arial, comicSansMS, timesNewRoman;
+	Font arial, comicSansMS, timesNewRoman, inter, barlow;
 	String selectedFont;
 
 	// Constructor
@@ -36,6 +36,8 @@ public class Function_Format {
 		arial = new Font("Arial", Font.PLAIN, fontSize);
 		comicSansMS = new Font("Comic Sans MS", Font.PLAIN, fontSize);
 		timesNewRoman = new Font("Times New Roman", Font.PLAIN, fontSize);
+        inter = new Font("Inter", Font.PLAIN, fontSize);
+        barlow = new Font("Barlow", Font.PLAIN, fontSize);
 		setFont(selectedFont);
 	}
 
@@ -51,6 +53,12 @@ public class Function_Format {
 			case "Times New Roman":
 				gui.textArea.setFont(timesNewRoman);
 				break;
+            case "Inter":
+                gui.textArea.setFont(inter);
+                break;
+            case "Barlow":
+                gui.textArea.setFont(barlow);
+                break;
 		}
 	}
 }
