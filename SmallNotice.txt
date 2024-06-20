@@ -1,6 +1,8 @@
 The application can only be closed if:
-- The text space is blank
+- The text space is blank (like initially, you open my application and still not type in anything)
 - User open an existing document and want to exit
+
+For the video, because at the time I was recording, the noise around my place was quite loud since there was a working construction site, so I needed to add some lofi music to drown it out. I'm sorry for that inconvenience and thanks for your understandings.
 
 I have also implemented some common keyboard shortcuts for convenient use:
 1. Ctrl + O: Open a previously saved text file

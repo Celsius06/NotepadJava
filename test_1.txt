@@ -1,5 +1,5 @@
-Student Name: Nguyen Minh Thuan
-Student ID: ITCSIU22269
+Student Name: Nguyen Minh Thuan 
+Student ID: ITCSIU22269 
 School of Computer Science and Engineering
 Course Name: Algorithms and Data Structures
 Course ID: IT013IU
@@ -8,3 +8,5 @@ The text below will be used to test the features of the code:
 as as as as as 
 ad ad ad ad ad 
 ha ha ha ha ha 
+as as as as as
+as as as as as
