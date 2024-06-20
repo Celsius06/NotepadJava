@@ -10,8 +10,9 @@ I have also implemented some common keyboard shortcuts for convenient use:
 3. Ctrl + Shift + S: Save as (Save the current text file to a new directory, or save it with an another name,....)
 4. Ctrl + N: Create a new blank page.
 5. Ctrl + Z: Undo the last action.
-6. Ctrl + X: Cut the selected text.
-7. Ctrl + V: Paste the copied or cut text.
-8. Ctrl + C: Copy the selected text.
-9. Ctrl + F: Open the find dialog to search for text within the document.
-10. Ctrl + H: Open the replace dialog to find and replace text within the document.
+6. Ctrl + Y: Redo the last action.
+7. Ctrl + X: Cut the selected text.
+8. Ctrl + V: Paste the copied or cut text.
+9. Ctrl + C: Copy the selected text.
+10. Ctrl + F: Open the find dialog to search for text within the document.
+11. Ctrl + H: Open the replace dialog to find and replace text within the document.
