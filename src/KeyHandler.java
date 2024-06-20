@@ -47,6 +47,10 @@ public class KeyHandler implements KeyListener {
                     // Ctrl + Z: Undo
                     gui.edit.undo();
                     break;
+                case KeyEvent.VK_Y:
+                    // Ctrl + Z: Redo
+                    gui.edit.redo();
+                    break;
                 case KeyEvent.VK_X:
                     // Ctrl + X: Cut
                     gui.textArea.cut();
@@ -72,7 +76,5 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-    	
-    }
+    public void keyReleased(KeyEvent e) {}
 }
