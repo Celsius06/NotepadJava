@@ -1,9 +1,12 @@
+# Attached Materials
+Presentation Video: https://shorturl.at/iiFmz 
+
 # NotepadJava - Nguyen Minh Thuan_ITCSIU22269
 My application can be launched by 2 ways:
 1. Through my Main.java
 2. Through the executable .jar file that I placed in my source code. Name of that .jar file is SimpleNotepad.jar
 
-Here are some small notices:
+# Here are some small notices:
 The application can only be closed if:
 - The text space is blank (like initially, you open my application and still not type in anything)
 - User open an existing document and want to exit
